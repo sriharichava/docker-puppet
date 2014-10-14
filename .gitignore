@@ -10,5 +10,6 @@ keys
 puppetboard/ssl/
 puppetdb/ssl/
 puppetmaster/ssl/
+puppetserver/ssl/
 etcd-v*-linux-amd64.tar.gz
 etcd-v*-linux-amd64/
