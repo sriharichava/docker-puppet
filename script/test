@@ -44,11 +44,9 @@ docker run -d \
   --hostname=puppetboard.inf.ise.com \
   jumanjiman/puppetboard
 
-say Sleep 60 seconds for puppetdb to become ready.
-#
-# It can actually take up to 2 minutes for puppetdb to fully start.
-for x in $(seq 1 60); do echo -n "."; sleep 1; done
-echo
+say Wait for puppetdb to become ready.
+for x in $(seq 1 60); do echo -n "."; sleep 1; done; echo
+for x in $(seq 1 60); do echo -n "."; sleep 1; done; echo
 
 say Run puppet agent against master.
 #
