@@ -10,6 +10,4 @@ rm -fr /var/lock/subsys/puppetdb*
 /etc/init.d/puppetdb start
 
 # Ugly!
-sleep 60
-
-tail -f /var/log/messages /var/log/puppetdb/*
+tail -f /var/log/messages
