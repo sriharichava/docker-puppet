@@ -23,7 +23,7 @@ ADD ssl /var/lib/puppet/ssl
 RUN chown -R puppet:puppet /var/lib/puppet/ssl
 
 # Install puppetdb.
-RUN puppet module install puppetlabs/puppetdb --version 4.2.1
+RUN puppet module install puppetlabs/puppetdb --version 5.0.0
 ADD install.pp /tmp/install.pp
 # Run puppet twice if necessary to work around rpmdb error
 # https://bugzilla.redhat.com/show_bug.cgi?id=1213602#c13

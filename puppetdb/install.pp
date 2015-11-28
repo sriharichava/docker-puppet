@@ -2,6 +2,11 @@ Package {
   allow_virtual => false,
 }
 
+# Install pg-trgm plugin as recommended by PuppetLabs.
+package { 'postgresql-contrib':
+  ensure => latest,
+}
+
 package { 'rsyslog':
   ensure        => latest,
   allow_virtual => false,
@@ -38,6 +43,10 @@ ini_setting { 'certname':
   value   => $cname,
 }
 
+class { 'puppetdb::globals':
+  version   => '2.3.8-1.el6', # must match version in puppetmaster/Dockerfile
+}
+
 # Use postgresql for backend db.
 # http://docs.puppetlabs.com/puppetdb/2.1/configure.html
 #
@@ -53,7 +62,6 @@ class { 'puppetdb':
   report_ttl         => '14d',
   gc_interval        => '60',
   java_args          => $java_args,
-  puppetdb_version   => '2.3.8-1.el6', # must match version in puppetmaster/Dockerfile
   require            => Ini_setting['certname'],
 }
 
